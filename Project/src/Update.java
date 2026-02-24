@@ -19,19 +19,15 @@ public class Update {
         }
         try {
           
-            String query="insert into CURD(name,age,marks) values (?,?,?)";
+            String query="update CURD set name=? where age=?";
             Connection connection=DriverManager.getConnection(url, username, password);
             PreparedStatement statement=connection.prepareStatement(query);
-            statement.setString(1, "Ashutosh");
+            
+            statement.setString(1, "Ayush");
             statement.setInt(2, 23);
-            statement.setDouble(3, 93.4);
+           
             int result=statement.executeUpdate();
-            if(result>0){
-                System.out.println("Data Instered Successfully");
-            }
-            else{
-                System.out.println("No Data has been Inserted");
-            }
+            System.out.println(result + " rows affected.");
             statement.close();
             connection.close();
         } catch (SQLException e) {
@@ -40,6 +36,6 @@ public class Update {
     }
 
     public static void main(String[] args) throws Exception {
-        new Create();
+        new Update();
     }
 }
