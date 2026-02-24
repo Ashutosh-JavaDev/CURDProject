@@ -6,12 +6,12 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class Database {
+public class Create {
     private final String url = "jdbc:mysql://localhost:3306/JDBC_Project";
     private final String username = "root";
     private final String password = "@Radhakrishna297";
 
-    Database() {
+    Create() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -40,6 +40,6 @@ public class Database {
     }
 
     public static void main(String[] args) throws Exception {
-        new Database();
+        new Create();
     }
 }
